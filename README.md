@@ -1,10 +1,10 @@
-# Admin-on-Rest Demo + Java Spring Boot/MySQL REST Backend
+# React Admin Demo + Java Spring Boot/MySQL REST Backend
 
-This is a demo of the [admin-on-rest](https://github.com/marmelab/admin-on-rest) library for React.js. It creates a working administration for a fake poster shop named Posters Galore. You can test it online at http://marmelab.com/admin-on-rest-demo.
+This is a demo of the [react-admin](https://github.com/marmelab/react-admin) library for React.js. It creates a working administration for a fake poster shop named Posters Galore. You can test it online at http://marmelab.com/react-admin-demo.
 
 [![admin-on-rest-demo](https://marmelab.com/admin-on-rest/img/admin-on-rest-demo-still.png)](https://vimeo.com/205118063)
 
-Admin-on-rest requires a REST server which is provided in this bundle in the /backend folder
+React-Admin can work really well with a REST api implementation which is provided in this bundle in the /backend folder
 
 To explore the source code, start with [src/index.js](https://github.com/marmelab/admin-on-rest-demo/blob/master/src/index.js).
 
