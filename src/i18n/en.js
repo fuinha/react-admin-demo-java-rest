@@ -1,4 +1,7 @@
+import englishMessages from 'ra-language-english';
+
 export default {
+    ...englishMessages,
     pos: {
         search: 'Search',
         configuration: 'Configuration',
@@ -15,14 +18,21 @@ export default {
             new_customers: 'New Customers',
             pending_orders: 'Pending Orders',
             order: {
-                items: 'by %{customer_name}, one item |||| by %{customer_name}, %{nb_items} items',
+                items:
+                    'by %{customer_name}, one item |||| by %{customer_name}, %{nb_items} items',
             },
             welcome: {
-                title: 'Welcome to admin-on-rest demo',
-                subtitle: 'This is the admin of an imaginary poster shop. Fell free to explore and modify the data - it\'s local to your computer, and will reset each time you reload.',
-                aor_button: 'Admin-on-rest website',
+                title: 'Welcome to react-admin demo',
+                subtitle:
+                    "This is the admin of an imaginary poster shop. Feel free to explore and modify the data - it's local to your computer, and will reset each time you reload.",
+                aor_button: 'react-admin site',
                 demo_button: 'Source for this demo',
             },
+        },
+        menu: {
+            sales: 'Sales',
+            catalog: 'Catalog',
+            customers: 'Customers',
         },
     },
     resources: {
@@ -30,24 +40,35 @@ export default {
             name: 'Customer |||| Customers',
             fields: {
                 commands: 'Orders',
+                first_seen: 'First seen',
                 groups: 'Segments',
+                last_seen: 'Last seen',
                 last_seen_gte: 'Visited Since',
                 name: 'Name',
+                total_spent: 'Total spent',
+                password: 'Password',
+                confirm_password: 'Confirm password',
             },
-            tabs: {
+            fieldGroups: {
                 identity: 'Identity',
                 address: 'Address',
-                orders: 'Orders',
-                reviews: 'Reviews',
                 stats: 'Stats',
+                history: 'History',
+                password: 'Password',
+                change_password: 'Change Password',
             },
             page: {
                 delete: 'Delete Customer',
             },
-
+            errors: {
+                password_mismatch:
+                    'The password confirmation is not the same as the password.',
+            },
         },
         commands: {
             name: 'Order |||| Orders',
+            amount: '1 order |||| %{smart_count} orders',
+            title: 'Order %{reference}',
             fields: {
                 basket: {
                     delivery: 'Delivery',
@@ -62,6 +83,20 @@ export default {
                 date_gte: 'Passed Since',
                 date_lte: 'Passed Before',
                 total_gte: 'Min amount',
+                status: 'Status',
+                returned: 'Returned',
+            },
+        },
+        invoices: {
+            name: 'Invoice |||| Invoices',
+            fields: {
+                date: 'Invoice date',
+                customer_id: 'Customer',
+                command_id: 'Order',
+                date_gte: 'Passed Since',
+                date_lte: 'Passed Before',
+                total_gte: 'Min amount',
+                address: 'Address',
             },
         },
         products: {
@@ -78,7 +113,7 @@ export default {
                 stock: 'Stock',
                 thumbnail: 'Thumbnail',
                 width_gte: 'Min width',
-                width_lte: 'mx_width',
+                width_lte: 'Max width',
                 width: 'Width',
             },
             tabs: {
@@ -93,10 +128,12 @@ export default {
             fields: {
                 products: 'Products',
             },
-
         },
         reviews: {
             name: 'Review |||| Reviews',
+            amount: '1 review |||| %{smart_count} reviews',
+            relative_to_poster: 'Review on poster',
+            detail: 'Review detail',
             fields: {
                 customer_id: 'Customer',
                 command_id: 'Order',

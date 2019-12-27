@@ -73,7 +73,7 @@ public class FileUploadController {
     @RequestMapping(value = "file/{id}", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> getFile(@PathVariable int id )
             throws IOException {
-        File file = new File( context.getRealPath(repo.findOne(id).diskPath));
+        File file = new File( context.getRealPath(repo.findById(id).orElseThrow().diskPath));
 
 
         return ResponseEntity

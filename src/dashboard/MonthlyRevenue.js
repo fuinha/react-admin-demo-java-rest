@@ -1,16 +1,42 @@
 import React from 'react';
-import { Card, CardTitle } from 'material-ui/Card';
-import DollarIcon from 'material-ui/svg-icons/editor/attach-money';
-import { translate } from 'admin-on-rest';
+import Card from '@material-ui/core/Card';
+import DollarIcon from '@material-ui/icons/AttachMoney';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import { useTranslate } from 'react-admin';
 
-const styles = {
-    card: { borderLeft: 'solid 4px #31708f', flex: '1', marginRight: '1em' },
-    icon: { float: 'right', width: 64, height: 64, padding: 16, color: '#31708f' },
+import CardIcon from './CardIcon';
+
+const useStyles = makeStyles({
+    main: {
+        flex: '1',
+        marginRight: '1em',
+        marginTop: 20,
+    },
+    card: {
+        overflow: 'inherit',
+        textAlign: 'right',
+        padding: 16,
+        minHeight: 52,
+    },
+});
+
+const MonthlyRevenue = ({ value }) => {
+    const translate = useTranslate();
+    const classes = useStyles();
+    return (
+        <div className={classes.main}>
+            <CardIcon Icon={DollarIcon} bgColor="#31708f" />
+            <Card className={classes.card}>
+                <Typography className={classes.title} color="textSecondary">
+                    {translate('pos.dashboard.monthly_revenue')}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                    {value}
+                </Typography>
+            </Card>
+        </div>
+    );
 };
 
-export default translate(({ value, translate }) => (
-    <Card style={styles.card}>
-        <DollarIcon style={styles.icon} />
-        <CardTitle title={value} subtitle={translate('pos.dashboard.monthly_revenue')} />
-    </Card>
-));
+export default MonthlyRevenue;
