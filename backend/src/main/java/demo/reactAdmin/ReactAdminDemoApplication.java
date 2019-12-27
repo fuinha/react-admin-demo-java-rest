@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
@@ -14,7 +13,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import reactAdmin.rest.providers.ObjectMapperProvider;
+import springboot.rest.providers.ObjectMapperProvider;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -24,10 +23,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.servlet.ServletContext;
 
-@SpringBootApplication(scanBasePackages = {"demo.reactAdmin", "reactAdmin"})
+@SpringBootApplication(scanBasePackages = {"demo.reactAdmin", "springboot.rest"})
 @EnableSwagger2
-
-public class ReactAdminDemoApplication extends WebMvcAutoConfiguration {
+public class ReactAdminDemoApplication {
 
 
     @Autowired
