@@ -138,8 +138,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.zifnab87</groupId>
-            <artifactId>react-admin-java-rest</artifactId>
-            <version>0145967</version>
+            <artifactId>spring-boot-rest-api-helpers</artifactId>
+            <version>e2c6ac0</version>
         </dependency>
     </dependencies>
 
