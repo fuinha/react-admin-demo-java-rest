@@ -1,16 +1,42 @@
 import React from 'react';
-import { Card, CardTitle } from 'material-ui/Card';
-import ShoppingCartIcon from 'material-ui/svg-icons/action/shopping-cart';
-import { translate } from 'admin-on-rest';
+import Card from '@material-ui/core/Card';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import { useTranslate } from 'react-admin';
 
-const styles = {
-    card: { borderLeft: 'solid 4px #ff9800', flex: 1, marginLeft: '1em' },
-    icon: { float: 'right', width: 64, height: 64, padding: 16, color: '#ff9800' },
+import CardIcon from './CardIcon';
+
+const useStyles = makeStyles({
+    main: {
+        flex: '1',
+        marginLeft: '1em',
+        marginTop: 20,
+    },
+    card: {
+        overflow: 'inherit',
+        textAlign: 'right',
+        padding: 16,
+        minHeight: 52,
+    },
+});
+
+const NbNewOrders = ({ value }) => {
+    const translate = useTranslate();
+    const classes = useStyles();
+    return (
+        <div className={classes.main}>
+            <CardIcon Icon={ShoppingCartIcon} bgColor="#ff9800" />
+            <Card className={classes.card}>
+                <Typography className={classes.title} color="textSecondary">
+                    {translate('pos.dashboard.new_orders')}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                    {value}
+                </Typography>
+            </Card>
+        </div>
+    );
 };
 
-export default translate(({ value, translate }) => (
-    <Card style={styles.card}>
-        <ShoppingCartIcon style={styles.icon} />
-        <CardTitle title={value} subtitle={translate('pos.dashboard.new_orders')} />
-    </Card>
-));
+export default NbNewOrders;

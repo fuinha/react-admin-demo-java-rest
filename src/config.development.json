@@ -1,8 +1,0 @@
-{
-  "apiHost": "http://localhost:8080",
-  "apiPath": "/api/v1/",
-
-  "profileEndpoint": "current-user",
-  "loginEndpoint": "auth/login",
-  "uploadImageEndpoint": "upload"
-}

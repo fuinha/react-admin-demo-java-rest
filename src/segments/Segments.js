@@ -1,31 +1,50 @@
 import React from 'react';
-import { Card } from 'material-ui/Card';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import { translate, ViewTitle } from 'admin-on-rest';
+import Card from '@material-ui/core/Card';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
+import { useTranslate, Title } from 'react-admin';
 
 import LinkToRelatedCustomers from './LinkToRelatedCustomers';
 import segments from './data';
 
-export default translate(({ translate }) => (
-    <Card>
-        <ViewTitle title={translate('resources.segments.name')} />
-        <Table>
-            <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                <TableRow>
-                    <TableHeaderColumn>{translate('resources.segments.fields.name')}</TableHeaderColumn>
-                    <TableHeaderColumn />
-                </TableRow>
-            </TableHeader>
-            <TableBody displayRowCheckbox={false}>
-                {segments.map(segment => (
-                    <TableRow key={segment.id}>
-                        <TableRowColumn>{translate(segment.name)}</TableRowColumn>
-                        <TableRowColumn>
-                            <LinkToRelatedCustomers segment={segment.id} />
-                        </TableRowColumn>
+const useStyles = makeStyles({
+    root: {
+        marginTop: 16,
+    },
+});
+
+const Segments = () => {
+    const translate = useTranslate();
+    const classes = useStyles();
+    return (
+        <Card className={classes.root}>
+            <Title title={translate('resources.segments.name')} />
+            <Table size="small">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>
+                            {translate('resources.segments.fields.name')}
+                        </TableCell>
+                        <TableCell />
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
-    </Card>
-));
+                </TableHead>
+                <TableBody>
+                    {segments.map(segment => (
+                        <TableRow key={segment.id}>
+                            <TableCell>{translate(segment.name)}</TableCell>
+                            <TableCell>
+                                <LinkToRelatedCustomers segment={segment.id} />
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </Card>
+    );
+};
+
+export default Segments;
