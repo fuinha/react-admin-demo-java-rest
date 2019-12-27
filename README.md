@@ -2,17 +2,29 @@
 
 This is a demo of the [react-admin](https://github.com/marmelab/react-admin) library for React.js. It creates a working administration for a fake poster shop named Posters Galore. You can test it online at http://marmelab.com/react-admin-demo.
 
-[![admin-on-rest-demo](https://marmelab.com/admin-on-rest/img/admin-on-rest-demo-still.png)](https://vimeo.com/205118063)
+[![react-admin-demo](https://marmelab.com/react-admin/img/react-admin-demo-still.png)](https://vimeo.com/268958716)
 
-React-Admin can work really well with a REST api implementation which is provided in this bundle in the /backend folder
+React-admin usually requires a REST/GraphQL server to provide data. In this bundle an exmaple Java spring boot REST api implementation is provided  in the /backend folder
 
-To explore the source code, start with [src/index.js](https://github.com/marmelab/admin-on-rest-demo/blob/master/src/index.js).
+To explore the source code, start with [src/App.js](https://github.com/marmelab/react-admin/blob/master/examples/demo/src/App.js).
 
 **Note**: This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Front-End 
+## How to run (Frontend)
 
-In the project directory /src, you can run:
+After having cloned the repository, run the following commands at the repository root:
+
+```sh
+make install
+
+make build
+
+make run-demo
+```
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm start`
 
